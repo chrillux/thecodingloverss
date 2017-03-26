@@ -23,12 +23,15 @@ def index():
         href = entry.links[0].href
         bs = BS(urllib2.urlopen(href), "lxml")
 
+        published = entry.published
+
         image = bs.p.img.get('src')
         imgsrc='<img src="%s">' % image
 
         fe = fg.add_entry()
         fe.id(href)
         fe.link(href=href)
+        fe.pubdate(published)
         fe.title(title)
         fe.description(imgsrc)
 
