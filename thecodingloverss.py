@@ -18,22 +18,24 @@ def index():
 
     for entry in d.entries:
 
+        contributor = entry.summary_detail.value
+        href = entry.links[0].href
+        published = entry.published
         title = entry.title
 
-        href = entry.links[0].href
         bs = BS(urllib2.urlopen(href), "lxml")
-
-        published = entry.published
-
         image = bs.p.img.get('src')
         imgsrc='<img src="%s">' % image
 
+        description = "%s <br/> %s" % (imgsrc, contributor)
+
         fe = fg.add_entry()
+
         fe.id(href)
         fe.link(href=href)
         fe.pubdate(published)
         fe.title(title)
-        fe.description(imgsrc)
+        fe.description(description)
 
     rssfeed  = fg.rss_str(pretty=True)
     return rssfeed
