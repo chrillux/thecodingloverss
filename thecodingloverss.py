@@ -18,7 +18,11 @@ def index():
 
     for entry in d.entries:
 
-        contributor = entry.summary_detail.value
+        try:
+            contributor = entry.summary_detail.value
+        except:
+            contributor = "n/a"
+
         href = entry.links[0].href
         published = entry.published
         title = entry.title
