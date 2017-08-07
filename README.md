@@ -4,6 +4,8 @@ The Coding Love RSS feed with images.
 thecodinglove.com's RSS feed is not showing any images in their feed. This
 small app takes care of that. Language is Python and the web framework is Flask.
 
+This feed can be found running [here](https://thecodingloverss.herokuapp.com/).
+
 ## Contributors
 * [chrillux](https://github.com/chrillux)
 
